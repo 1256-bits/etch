@@ -12,7 +12,9 @@ function resizeGrid(side) {
 	for (let i = 0; i < Math.pow(side,2); i++) {
 		container.appendChild(div.cloneNode(false));
 	}
-	root.style.setProperty("--side", side);
+	root.style.setProperty("--squareSide", side);
+	//Resize sqares to fit inot 800x800 field
+	root.style.setProperty("--pixelSize", `${800 / side}px`);
 
 	const pixels = document.querySelectorAll(".pixel");
 	pixels.forEach(pxl => {

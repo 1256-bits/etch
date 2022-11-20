@@ -1,10 +1,10 @@
 #container {
     display: grid;
-    grid-template-columns: repeat(var(--side), var(--size));
-    grid-auto-rows: var(--size);
+    grid-template-columns: repeat(var(--squareSide), var(--pixelSize));
+    grid-auto-rows: var(--pixelSize);
 }
 
 :root {
-	--side: 4;
-	--size: 200px;
+	--squareSide: 4;
+	--pixelSize: 200px;
 }
