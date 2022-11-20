@@ -6,6 +6,7 @@ const input = document.querySelector("[type='number']");
 const button = document.querySelector("[type='button']");
 const colorPicker = document.querySelector("[type='color']");
 let brushColor = '#000000';
+let erase = false;
 
 button.addEventListener("click", () => resizeGrid(input.value));
 input.addEventListener("change", (e) => {
@@ -15,7 +16,15 @@ input.addEventListener("change", (e) => {
 		e.target.value = 100;
 });
 colorPicker.addEventListener("change", (e) => brushColor = e.target.value);
-// window.addEventListener("keyDown", (e) => )
+window.addEventListener("keydown", (e) => {
+	if (e.key == "Control")
+		erase = true;
+	console.log(erase)
+});
+window.addEventListener("keyup", (e) => {
+	if (e.key == "Control")
+		erase = false;
+});
 
 /* TODO
 	- Add togglable borders to the grid
@@ -34,8 +43,16 @@ function resizeGrid(side) {
 
 	const pixels = document.querySelectorAll(".pixel");
 	pixels.forEach(pxl => {
-		pxl.addEventListener("click", () => pxl.style.backgroundColor = brushColor);
+		pxl.addEventListener("click", draw);
 	});
+}
+
+function draw(e) {
+	console.log(erase)
+	if (erase)
+		e.target.style.backgroundColor = '';
+	else
+		e.target.style.backgroundColor = brushColor;
 }
 
 resizeGrid(4);
