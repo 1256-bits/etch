@@ -3,12 +3,17 @@ const div = document.createElement("div");
 div.classList.toggle("pixel");
 const root = document.querySelector(":root");
 const input = document.querySelector("[type='number']");
-const button = document.querySelector("[type='button']");
+const button = document.querySelector("#resize");
 const colorPicker = document.querySelector("[type='color']");
+const eraserButton = document.querySelector("#erase");
 let brushColor = '#000000';
 let erase = false;
 
 button.addEventListener("click", () => resizeGrid(input.value));
+eraserButton.addEventListener("click", () => {
+	erase = !erase;
+	eraserButton.classList.toggle("pressed");
+});
 input.addEventListener("change", (e) => {
 	if (e.target.value < 2)
 		e.target.value = 2;
