@@ -10,27 +10,32 @@ let brushColor = '#000000';
 let erase = false;
 
 button.addEventListener("click", () => resizeGrid(input.value));
+colorPicker.addEventListener("change", (e) => brushColor = e.target.value);
+window.addEventListener("blur", (e) => erase = false);
+
 eraserButton.addEventListener("click", () => {
 	erase = !erase;
 	eraserButton.classList.toggle("pressed");
 });
+
 input.addEventListener("change", (e) => {
 	if (e.target.value < 2)
 		e.target.value = 2;
 	else if (e.target.value > 100)
 		e.target.value = 100;
 });
-colorPicker.addEventListener("change", (e) => brushColor = e.target.value);
+
 window.addEventListener("keydown", (e) => {
 	if (e.key == "Control")
 		erase = true;
 	console.log(erase)
 });
+
 window.addEventListener("keyup", (e) => {
 	if (e.key == "Control")
 		erase = false;
 });
-window.addEventListener("blur", (e) => erase = false);
+
 
 /* TODO
 	- Add togglable borders to the grid
