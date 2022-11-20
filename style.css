@@ -4,8 +4,8 @@
     grid-auto-rows: var(--pixelSize);
 }
 
-#container > div:hover {
-    background-color: black;
+#container div:hover {
+    border: 1px dashed red;
 }
 
 :root {
