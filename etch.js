@@ -16,6 +16,7 @@ input.addEventListener("change", (e) => {
 /* TODO
 	- Add togglable borders to the grid
 	- Style the page
+	- Add actual drawing functions (lol)
 */
 
 function resizeGrid(side) {
@@ -29,8 +30,7 @@ function resizeGrid(side) {
 
 	const pixels = document.querySelectorAll(".pixel");
 	pixels.forEach(pxl => {
-		pxl.addEventListener("mouseover", () => pxl.style.backgroundColor = "black");
-		pxl.addEventListener("mouseout", () => pxl.style.backgroundColor = "white");
+		pxl.addEventListener("click", () => pxl.style.backgroundColor = "black");
 	});
 }
 

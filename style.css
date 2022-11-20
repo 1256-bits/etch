@@ -4,6 +4,10 @@
     grid-auto-rows: var(--pixelSize);
 }
 
+#container > div:hover {
+    background-color: black;
+}
+
 :root {
 	--squareSide: 4;
 	--pixelSize: 200px;
