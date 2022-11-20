@@ -6,10 +6,21 @@ const input = document.querySelector("[type='number']");
 const button = document.querySelector("[type='button']");
 
 button.addEventListener("click", () => resizeGrid(input.value));
+input.addEventListener("change", (e) => {
+	if (e.target.value < 2)
+		e.target.value = 2;
+	else if (e.target.value > 100)
+		e.target.value = 100;
+});
+
+/* TODO
+	- Add togglable borders to the grid
+	- Style the page
+*/
 
 function resizeGrid(side) {
 	container.innerHTML = '';
-	for (let i = 0; i < Math.pow(side,2); i++) {
+	for (let i = 0; i < Math.pow(side, 2); i++) {
 		container.appendChild(div.cloneNode(false));
 	}
 	root.style.setProperty("--squareSide", side);
