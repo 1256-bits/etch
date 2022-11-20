@@ -2,8 +2,13 @@ const container = document.querySelector("#container");
 const div = document.createElement("div");
 div.classList.toggle("pixel");
 const root = document.querySelector(":root");
+const input = document.querySelector("[type='number']");
+const button = document.querySelector("[type='button']");
+
+button.addEventListener("click", () => resizeGrid(input.value));
 
 function resizeGrid(side) {
+	container.innerHTML = '';
 	for (let i = 0; i < Math.pow(side,2); i++) {
 		container.appendChild(div.cloneNode(false));
 	}
