@@ -13,7 +13,7 @@ function resizeGrid(side) {
 		container.appendChild(div.cloneNode(false));
 	}
 	root.style.setProperty("--squareSide", side);
-	//Resize sqares to fit inot 800x800 field
+	//Resize sqares to fit into 800x800 field
 	root.style.setProperty("--pixelSize", `${800 / side}px`);
 
 	const pixels = document.querySelectorAll(".pixel");
