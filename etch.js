@@ -25,11 +25,11 @@ window.addEventListener("keyup", (e) => {
 	if (e.key == "Control")
 		erase = false;
 });
+window.addEventListener("blur", (e) => erase = false);
 
 /* TODO
 	- Add togglable borders to the grid
 	- Style the page
-	- Add actual drawing functions (lol)
 */
 
 function resizeGrid(side) {
