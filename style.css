@@ -12,3 +12,11 @@
 	--squareSide: 4;
 	--pixelSize: 200px;
 }
+
+input:active {
+    background-color: blue;
+}
+
+.pressed {
+    background-color: blue;
+}
