@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(var(--squareSide), var(--pixelSize));
     grid-auto-rows: var(--pixelSize);
+    border: solid 1px black;
 }
 
 #container div:hover {
@@ -9,8 +10,8 @@
 }
 
 :root {
-	--squareSide: 4;
-	--pixelSize: 200px;
+    --squareSide: 4;
+    --pixelSize: 200px;
 }
 
 input:active {
@@ -19,4 +20,15 @@ input:active {
 
 .pressed {
     background-color: blue;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+body {
+    background-color: antiquewhite;
 }
