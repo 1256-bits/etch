@@ -8,6 +8,7 @@ const colorPicker = document.querySelector("[type='color']");
 const eraserButton = document.querySelector("#erase");
 let brushColor = '#000000';
 let erase = false;
+let resizeInputBackup = '';
 
 button.addEventListener("click", () => resizeGrid(input.value));
 colorPicker.addEventListener("change", (e) => brushColor = e.target.value);
@@ -16,6 +17,15 @@ window.addEventListener("blur", (e) => erase = false);
 eraserButton.addEventListener("click", () => {
 	erase = !erase;
 	eraserButton.classList.toggle("pressed");
+});
+
+input.addEventListener("focus", (e) => {
+	resizeInputBackup = e.target.value;
+	e.target.value = '';
+});
+input.addEventListener("focusout", (e) => {
+	if(e.target.value == '')
+		e.target.value = resizeInputBackup; 
 });
 
 input.addEventListener("change", (e) => {
@@ -40,6 +50,8 @@ window.addEventListener("keyup", (e) => {
 /* TODO
 	- Add togglable borders to the grid
 	- Style the page
+	- Style erase button
+	- Make erase button look pressed when pressed when ctrl is pressed
 */
 
 function resizeGrid(side) {
