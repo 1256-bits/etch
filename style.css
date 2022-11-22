@@ -14,21 +14,48 @@
     --pixelSize: 200px;
 }
 
-input:active {
-    background-color: blue;
-}
-
-.pressed {
-    background-color: blue;
-}
-
 .center {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     gap: 10px;
 }
 
 body {
     background-color: antiquewhite;
 }
+
+.button {
+    background-color: rgb(247, 203, 145);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: 75px;
+    border: solid 2px rgb(255, 196, 119);
+}
+
+.button:hover {
+    background-color: rgb(255, 154, 71);
+    border: solid 4px rgb(255, 136, 39);
+    padding-left: 14px;
+}
+
+.pressed,
+.button:active,
+.pressed:hover {
+    background-color: rgb(245, 97, 12);
+    border-color: rgb(245, 90, 0);
+}
+
+#inputs {
+    display: flex;
+    padding: 1%;
+    min-height: 50px;
+    align-items: center;
+    gap: 4px;
+    width: max-content;
+}
+
+/* input[type="number"] {
+    width: 100%;
+}*/
