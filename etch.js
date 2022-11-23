@@ -24,7 +24,7 @@ checkbox.addEventListener("input", () => {
 		drawBorders();
 	else {
 		removeBorders();
-	} 
+	}
 });
 
 eraserButton.addEventListener("click", () => {
@@ -49,20 +49,18 @@ input.addEventListener("change", (e) => {
 });
 
 window.addEventListener("keydown", (e) => {
-	if (e.key == "Control")
+	if (e.key == "Control") {
 		erase = true;
-	console.log(erase)
+		eraserButton.classList.add("pressed");
+	}
 });
 
 window.addEventListener("keyup", (e) => {
-	if (e.key == "Control")
+	if (e.key == "Control") {
 		erase = false;
+		eraserButton.classList.remove("pressed");
+	}
 });
-
-
-/* TODO
-	- Make erase button look pressed when pressed when ctrl is presse
-*/
 
 function resizeGrid(side) {
 	container.innerHTML = '';
@@ -91,7 +89,7 @@ function draw(e) {
 }
 
 
-function drawBorders () {
+function drawBorders() {
 	const pixels = document.querySelectorAll(".pixel");
 	pixels.forEach(pixel => pixel.classList.toggle("pixel-borders"));
 	style.innerHTML = `
@@ -112,7 +110,7 @@ function drawBorders () {
 	}
 
 	/* bottom row */
-	.pixel:nth-child(n + ${Math.pow(root.style.getPropertyValue("--squareSide"),2) - root.style.getPropertyValue("--squareSide") + 1}) {
+	.pixel:nth-child(n + ${Math.pow(root.style.getPropertyValue("--squareSide"), 2) - root.style.getPropertyValue("--squareSide") + 1}) {
 		border-bottom: none;
 	}
 	`
