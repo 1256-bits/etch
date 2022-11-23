@@ -49,8 +49,6 @@ window.addEventListener("keyup", (e) => {
 
 /* TODO
 	- Add togglable borders to the grid
-	- Style the page
-	- Style erase button
 	- Make erase button look pressed when pressed when ctrl is pressed
 */
 
