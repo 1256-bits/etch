@@ -104,3 +104,9 @@ p {
 input[type="number"] {
     height: 28px;
 }
+
+#checkbox {
+    position: absolute;
+    top: 1%;
+    left: 1%
+}

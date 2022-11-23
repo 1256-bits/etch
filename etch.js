@@ -8,13 +8,24 @@ const button = document.querySelector("#resize");
 const colorPicker = document.querySelector("[type='color']");
 const eraserButton = document.querySelector("#erase");
 const style = document.createElement("style");
+const checkbox = document.querySelector("#grid-toggle");
 let brushColor = '#000000';
 let erase = false;
 let resizeInputBackup = '';
+let areBordersOn = false;
 
 button.addEventListener("click", () => resizeGrid(input.value));
 colorPicker.addEventListener("change", (e) => brushColor = e.target.value);
 window.addEventListener("blur", (e) => erase = false);
+
+checkbox.addEventListener("input", () => {
+	areBordersOn = !areBordersOn;
+	if (areBordersOn)
+		drawBorders();
+	else {
+		removeBorders();
+	} 
+});
 
 eraserButton.addEventListener("click", () => {
 	erase = !erase;
@@ -50,7 +61,6 @@ window.addEventListener("keyup", (e) => {
 
 
 /* TODO
-	- Add togglable borders to the grid
 	- Make erase button look pressed when pressed when ctrl is presse
 */
 
@@ -67,6 +77,9 @@ function resizeGrid(side) {
 	pixels.forEach(pxl => {
 		pxl.addEventListener("click", draw);
 	});
+
+	if (areBordersOn)
+		drawBorders();
 }
 
 function draw(e) {
@@ -79,7 +92,6 @@ function draw(e) {
 
 
 function drawBorders () {
-
 	const pixels = document.querySelectorAll(".pixel");
 	pixels.forEach(pixel => pixel.classList.toggle("pixel-borders"));
 	style.innerHTML = `
@@ -106,5 +118,11 @@ function drawBorders () {
 	`
 	body.appendChild(style);
 };
+
+function removeBorders() {
+	const pixels = document.querySelectorAll(".pixel");
+	pixels.forEach(pxl => pxl.classList.toggle("pixel-borders"));
+	style.innerHTML = '';
+}
 
 resizeGrid(4);
