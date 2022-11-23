@@ -5,9 +5,8 @@
     border: solid 1px black;
 }
 
-.pixel {
+.pixel-borders {
     border: 1px dashed black;
-    outline: none;
 }
 
 #container div:hover {
