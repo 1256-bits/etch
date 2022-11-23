@@ -28,6 +28,8 @@
 
 body {
     background-color: antiquewhite;
+    font-size: medium;
+    font-family: serif;
 }
 
 .button {
@@ -36,8 +38,8 @@ body {
     border-radius: 5px;
     width: 75px;
     border: solid 2px rgb(255, 196, 119);
-    font-size: medium;
-    font-family: serif;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 .button:hover {
@@ -97,8 +99,6 @@ input[type="color"] {
 p {
     margin: 0;
     padding: 0px 4px;
-    font-size: medium;
-    font-family: serif;
 }
 
 input[type="number"] {
