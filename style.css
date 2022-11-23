@@ -32,6 +32,8 @@ body {
     border-radius: 5px;
     width: 75px;
     border: solid 2px rgb(255, 196, 119);
+    font-size: medium;
+    font-family: serif;
 }
 
 .button:hover {
@@ -53,6 +55,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 65%;
+    max-width: 800px;
 }
 
 input[type="color"] {
@@ -70,10 +73,30 @@ input[type="color"] {
 
 ::-webkit-color-swatch {
     border: 0;
-    border-radius: 0;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
 }
 
-#inputs div {
+#inputs>div {
     display: flex;
+    align-items: center;
     gap: 5px;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    background-color: rgb(247, 203, 145);
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+    padding: 0px 4px;
+    font-size: medium;
+    font-family: serif;
+}
+
+input[type="number"] {
+    height: 28px;
 }
