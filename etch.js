@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const container = document.querySelector("#container");
 const div = document.createElement("div");
 div.classList.toggle("pixel");
@@ -24,8 +25,8 @@ input.addEventListener("focus", (e) => {
 	e.target.value = '';
 });
 input.addEventListener("focusout", (e) => {
-	if(e.target.value == '')
-		e.target.value = resizeInputBackup; 
+	if (e.target.value == '')
+		e.target.value = resizeInputBackup;
 });
 
 input.addEventListener("change", (e) => {
@@ -49,7 +50,7 @@ window.addEventListener("keyup", (e) => {
 
 /* TODO
 	- Add togglable borders to the grid
-	- Make erase button look pressed when pressed when ctrl is pressed
+	- Make erase button look pressed when pressed when ctrl is presse
 */
 
 function resizeGrid(side) {
@@ -76,3 +77,31 @@ function draw(e) {
 }
 
 resizeGrid(4);
+
+const TEST = document.querySelector("#TEST");
+const style = document.createElement("style");
+TEST.addEventListener("click", () => {
+	style.innerHTML = `
+
+	/* top row */
+	.pixel:nth-child(-n + ${root.style.getPropertyValue("--squareSide")}) {
+		border-top: none;
+	}
+
+	/* right collumn */
+	.pixel:nth-child(${root.style.getPropertyValue("--squareSide")}n) {
+		border-right: none;
+	}
+
+	/* left collumn */
+	.pixel:nth-child(${root.style.getPropertyValue("--squareSide")}n + 1) {
+		border-left: none;
+	}
+
+	/* bottom row */
+	.pixel:nth-child(n + ${Math.pow(root.style.getPropertyValue("--squareSide"),2) - root.style.getPropertyValue("--squareSide") + 1}) {
+		border-bottom: none;
+	}
+	`
+	body.appendChild(style);
+});

@@ -5,6 +5,11 @@
     border: solid 1px black;
 }
 
+.pixel {
+    border: 1px dashed black;
+    outline: none;
+}
+
 #container div:hover {
     border: 1px dashed red;
 }
