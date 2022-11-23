@@ -7,6 +7,7 @@ const input = document.querySelector("[type='number']");
 const button = document.querySelector("#resize");
 const colorPicker = document.querySelector("[type='color']");
 const eraserButton = document.querySelector("#erase");
+const style = document.createElement("style");
 let brushColor = '#000000';
 let erase = false;
 let resizeInputBackup = '';
@@ -76,11 +77,11 @@ function draw(e) {
 		e.target.style.backgroundColor = brushColor;
 }
 
-resizeGrid(4);
 
-const TEST = document.querySelector("#TEST");
-const style = document.createElement("style");
-TEST.addEventListener("click", () => {
+function drawBorders () {
+
+	const pixels = document.querySelectorAll(".pixel");
+	pixels.forEach(pixel => pixel.classList.toggle("pixel-borders"));
 	style.innerHTML = `
 
 	/* top row */
@@ -104,4 +105,6 @@ TEST.addEventListener("click", () => {
 	}
 	`
 	body.appendChild(style);
-});
+};
+
+resizeGrid(4);
